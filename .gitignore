@@ -1,0 +1,46 @@
+# Django-specific
+*.pyc
+*.pyo
+__pycache__/
+.DS_Store
+.idea/
+.vscode/
+venv/
+*.sqlite3
+db.sqlite3
+media/
+static/
+*.log
+*.txt
+*.csv
+*.xlsx
+*.pdf
+*.zip
+*.rar
+*.tar.gz
+*.7z
+
+# Python
+*.egg-info
+dist/
+build/
+*.egg
+*.so
+*.pyd
+*.dll
+*.dylib
+
+# Pip
+*.whl
+*.egg
+*.zip
+*.tar.gz
+
+# Other
+*.swp
+.DS_Store
+Thumbs.db
+*.tmp
+*~
+
+!requirements.txt
