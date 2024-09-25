@@ -19,25 +19,26 @@
                     {% endif %}
                     <a href="{% url 'contact' %}" class="nav-link">Контакты</a>
                 </div>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+                <form action="{% url 'search_results' %}" method="get" class="d-flex" role="search">
+                    <input name="q" class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
                     <button class="btn btn-outline-success me-2" type="submit">Найти</button>
-                    {% if user.is_authenticated %}
-                        <span class="navbar-text me-2">{{ user }}</span>
-                        <a href="{% url 'signout' %}" class="btn btn-outline-light">Выход</a>
-                    {% else %}
-                        {% if request.get_full_path == '/signin/' %}
-                            <a href="{% url 'signin' %}" class="btn btn-outline-light me-2 active">Войти</a>
-                        {% else %}
-                            <a href="{% url 'signin' %}" class="btn btn-outline-light me-2 ">Войти</a>
-                        {% endif %}
-                        {% if request.get_full_path == '/signup/' %}
-                            <a href="{% url 'signup' %}" class="btn btn-outline-light me-2 active">Регистрация</a>
-                        {% else %}
-                            <a href="{% url 'signup' %}" class="btn btn-outline-light me-2">Регистрация</a>
-                        {% endif %}
-                    {% endif %}
                 </form>
+                {% if user.is_authenticated %}
+                    <span class="navbar-text me-2">{{ user }}</span>
+                    <a href="{% url 'signout' %}" class="btn btn-outline-light">Выход</a>
+                {% else %}
+                    {% if request.get_full_path == '/signin/' %}
+                        <a href="{% url 'signin' %}" class="btn btn-outline-light me-2 active">Войти</a>
+                    {% else %}
+                        <a href="{% url 'signin' %}" class="btn btn-outline-light me-2 ">Войти</a>
+                    {% endif %}
+                    {% if request.get_full_path == '/signup/' %}
+                        <a href="{% url 'signup' %}" class="btn btn-outline-light me-2 active">Регистрация</a>
+                    {% else %}
+                        <a href="{% url 'signup' %}" class="btn btn-outline-light me-2">Регистрация</a>
+                    {% endif %}
+                {% endif %}
+                
             </div>
         </div>
     </nav>
